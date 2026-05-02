@@ -43,6 +43,7 @@ namespace OKX.Net.UnitTests
             await tester.ValidateAsync(client => client.UnifiedApi.Account.GetMaximumWithdrawalsAsync(), "GetMaximumWithdrawals");
             await tester.ValidateAsync(client => client.UnifiedApi.Account.GetAssetsAsync(), "GetAssets");
             await tester.ValidateAsync(client => client.UnifiedApi.Account.GetFundingBalanceAsync(), "GetFundingBalance");
+            await tester.ValidateAsync(client => client.UnifiedApi.Account.GetCustodyFundingBalanceAsync(), "GetCustodyFundingBalance");
             await tester.ValidateAsync(client => client.UnifiedApi.Account.TransferAsync("ETH", 1, Enums.TransferType.MasterAccountToSubAccount, Enums.AccountType.Funding, Enums.AccountType.Funding), "Transfer", useSingleArrayItem: true);
             await tester.ValidateAsync(client => client.UnifiedApi.Account.GetFundingBillDetailsAsync("ETH"), "GetFundingBillDetails");
             await tester.ValidateAsync(client => client.UnifiedApi.Account.GetFundingBillHistoryAsync("ETH"), "GetFundingBillHistory");
@@ -139,6 +140,7 @@ namespace OKX.Net.UnitTests
             });
             var tester = new RestRequestValidator<OKXRestClient>(client, "Endpoints/UnifiedApi/SubAccounts", "https://www.okx.com", IsAuthenticated, "data");
             await tester.ValidateAsync(client => client.UnifiedApi.SubAccounts.GetSubAccountsAsync(), "GetSubAccounts");
+            await tester.ValidateAsync(client => client.UnifiedApi.SubAccounts.GetEntrustedSubAccountsAsync(), "GetEntrustedSubAccounts");
             await tester.ValidateAsync(client => client.UnifiedApi.SubAccounts.ResetSubAccountApiKeyAsync("123", "456"),  "ResetSubAccountApiKey", useSingleArrayItem: true);
             await tester.ValidateAsync(client => client.UnifiedApi.SubAccounts.GetSubAccountTradingBalancesAsync("123"), "GetSubAccountTradingBalances", useSingleArrayItem: true);
             await tester.ValidateAsync(client => client.UnifiedApi.SubAccounts.GetSubAccountFundingBalancesAsync("123"), "GetSubAccountFundingBalances");

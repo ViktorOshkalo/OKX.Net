@@ -40,6 +40,19 @@ internal class OKXRestClientUnifiedApiSubAccounts : IOKXRestClientUnifiedApiSubA
     }
 
     /// <inheritdoc />
+    public virtual async Task<WebCallResult<OKXSubAccount[]>> GetEntrustedSubAccountsAsync(
+        string? subAccountName = null,
+        CancellationToken ct = default)
+    {
+        var parameters = new ParameterCollection();
+        parameters.AddOptionalParameter("subAcct", subAccountName);
+
+        var request = _definitions.GetOrCreate(HttpMethod.Get, $"api/v5/users/entrust-subaccount-list", OKXExchange.RateLimiter.EndpointGate, 1, true,
+            limitGuard: new SingleLimitGuard(2, TimeSpan.FromSeconds(2), RateLimitWindowType.Sliding, keySelector: SingleLimitGuard.PerApiKey));
+        return await _baseClient.SendAsync<OKXSubAccount[]>(request, parameters, ct).ConfigureAwait(false);
+    }
+
+    /// <inheritdoc />
     public virtual async Task<WebCallResult<OKXSubAccountApiKey>> ResetSubAccountApiKeyAsync(
         string subAccountName,
         string apiKey,
