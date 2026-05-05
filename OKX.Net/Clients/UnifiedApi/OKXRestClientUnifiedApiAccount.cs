@@ -428,6 +428,16 @@ internal class OKXRestClientUnifiedApiAccount : IOKXRestClientUnifiedApiAccount
     }
 
     /// <inheritdoc />
+    public virtual async Task<WebCallResult<OKXFundingBalance[]>> GetCopperFundingBalanceAsync(string? asset = null, CancellationToken ct = default)
+    {
+        var parameters = new ParameterCollection();
+        parameters.AddOptionalParameter("ccy", asset);
+
+        var request = _definitions.GetOrCreate(HttpMethod.Get, $"api/v5/asset/copper-funding-balance", OKXExchange.RateLimiter.EndpointGate, 1, true,
+            limitGuard: new SingleLimitGuard(6, TimeSpan.FromSeconds(1), RateLimitWindowType.Sliding, keySelector: SingleLimitGuard.PerApiKey));
+        return await _baseClient.SendAsync<OKXFundingBalance[]>(request, parameters, ct).ConfigureAwait(false);
+    }
+    /// <inheritdoc />
     public virtual async Task<WebCallResult<OKXTransferResponse>> TransferAsync(
         string asset,
         decimal amount,
