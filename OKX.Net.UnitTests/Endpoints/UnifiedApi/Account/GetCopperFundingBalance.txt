@@ -6,10 +6,14 @@ true
     "msg": "",
     "data": [
         {
-            "availBal": "37.11827078",
-            "bal": "37.11827078",
-            "ccy": "ETH",
-            "frozenBal": "0"
+            "ccy": "USDT",
+            "delegatedBal": "118263.8797632903037616",
+            "fundingBal": "118263.8797632903037616"
+        },
+        {
+            "ccy": "BTC",
+            "delegatedBal": "0.000085458364",
+            "fundingBal": "0.00008545"
         }
     ]
 }

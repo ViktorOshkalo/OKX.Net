@@ -257,19 +257,6 @@ public interface IOKXRestClientUnifiedApiAccount
     /// <returns></returns>
     Task<WebCallResult<OKXFundingBalance[]>> GetFundingBalanceAsync(string? asset = null, CancellationToken ct = default);
 
-    /// <summary>
-    /// Get custody funding balance
-    /// <para>
-    /// Docs:<br />
-    /// <a href="https://www.okx.com/docs-v5/en/#funding-account-rest-api-get-custody-funding-balance" /><br />
-    /// Endpoint:<br />
-    /// GET /api/v5/asset/custody-funding-balance
-    /// </para>
-    /// </summary>
-    /// <param name="asset">["<c>ccy</c>"] Asset, for example `ETH`</param>
-    /// <param name="ct">Cancellation Token</param>
-    /// <returns></returns>
-    Task<WebCallResult<OKXFundingBalance[]>> GetCustodyFundingBalanceAsync(string? asset = null, CancellationToken ct = default);
 
     /// <summary>
     /// Get Copper funding balance
@@ -283,7 +270,8 @@ public interface IOKXRestClientUnifiedApiAccount
     /// <param name="asset">["<c>ccy</c>"] Asset, for example `ETH`</param>
     /// <param name="ct">Cancellation Token</param>
     /// <returns></returns>
-    Task<WebCallResult<OKXFundingBalance[]>> GetCopperFundingBalanceAsync(string? asset = null, CancellationToken ct = default);
+    Task<WebCallResult<OKXCopperFundingBalance[]>> GetCopperFundingBalanceAsync(string? asset = null, CancellationToken ct = default);
+
     /// <summary>
     /// Get billing records, you can get the latest 1 month historical data
     /// <para>

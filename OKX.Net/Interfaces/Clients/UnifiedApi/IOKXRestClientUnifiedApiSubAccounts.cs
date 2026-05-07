@@ -76,19 +76,6 @@ public interface IOKXRestClientUnifiedApiSubAccounts
     /// <returns></returns>
     Task<WebCallResult<OKXAccountBalance>> GetSubAccountTradingBalancesAsync(string subAccountName, CancellationToken ct = default);
 
-    /// <summary>
-    /// Get custody trading sub-account list
-    /// <para>
-    /// Docs:<br />
-    /// <a href="https://www.okx.com/docs-v5/en/#sub-account-rest-api-get-custody-trading-sub-account-list" /><br />
-    /// Endpoint:<br />
-    /// GET /api/v5/users/entrust-subaccount-list
-    /// </para>
-    /// </summary>
-    /// <param name="subAccountName">["<c>subAcct</c>"] Sub Account Name</param>
-    /// <param name="ct">Cancellation Token</param>
-    /// <returns></returns>
-    Task<WebCallResult<OKXSubAccount[]>> GetEntrustedSubAccountsAsync(string? subAccountName = null, CancellationToken ct = default);
 
     /// <summary>
     /// applies to master accounts only

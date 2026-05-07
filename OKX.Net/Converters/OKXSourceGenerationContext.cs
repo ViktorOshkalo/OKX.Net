@@ -67,6 +67,7 @@ namespace OKX.Net.Converters
     [JsonSerializable(typeof(OKXRestApiResponse<OKXWithdrawalAmount[]>))]
     [JsonSerializable(typeof(OKXRestApiResponse<OKXAsset[]>))]
     [JsonSerializable(typeof(OKXRestApiResponse<OKXFundingBalance[]>))]
+    [JsonSerializable(typeof(OKXRestApiResponse<OKXCopperFundingBalance[]>))]
     [JsonSerializable(typeof(OKXRestApiResponse<OKXFundingBill[]>))]
     [JsonSerializable(typeof(OKXRestApiResponse<OKXLightningDeposit[]>))]
     [JsonSerializable(typeof(OKXRestApiResponse<OKXDepositAddress[]>))]
