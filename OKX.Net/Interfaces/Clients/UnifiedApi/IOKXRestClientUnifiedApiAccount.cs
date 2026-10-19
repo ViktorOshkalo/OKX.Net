@@ -288,6 +288,20 @@ public interface IOKXRestClientUnifiedApiAccount
     Task<HttpResult<OKXFundingBalance[]>> GetFundingBalanceAsync(string? asset = null, CancellationToken ct = default);
 
     /// <summary>
+    /// Get Copper funding balance
+    /// <para>
+    /// Docs:<br />
+    /// <a href="https://www.okx.com/docs-v5/en/#funding-account-rest-api-get-copper-funding-balance" /><br />
+    /// Endpoint:<br />
+    /// GET /api/v5/asset/copper-funding-balance
+    /// </para>
+    /// </summary>
+    /// <param name="asset">["<c>ccy</c>"] Asset, for example `ETH`</param>
+    /// <param name="ct">Cancellation Token</param>
+    /// <returns></returns>
+    Task<HttpResult<OKXCopperFundingBalance[]>> GetCopperFundingBalanceAsync(string? asset = null, CancellationToken ct = default);
+
+    /// <summary>
     /// Get non-tradable funding assets and their withdrawal details.
     /// <para>
     /// Docs:<br />

@@ -1,0 +1,19 @@
+GET
+/api/v5/asset/copper-funding-balance
+true
+{
+    "code": "0",
+    "msg": "",
+    "data": [
+        {
+            "ccy": "USDT",
+            "delegatedBal": "118263.8797632903037616",
+            "fundingBal": "118263.8797632903037616"
+        },
+        {
+            "ccy": "BTC",
+            "delegatedBal": "0.000085458364",
+            "fundingBal": "0.00008545"
+        }
+    ]
+}
