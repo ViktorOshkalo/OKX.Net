@@ -20,7 +20,7 @@ public record OKXApiAddresses
     public static OKXApiAddresses Default = new OKXApiAddresses
     {
         UnifiedRestAddress = "https://www.okx.com",
-        UnifiedSocketAddress = "wss://ws.okx.com:8443",
+        UnifiedSocketAddress = "wss://ws.okx.com:443",
     };
 
     /// <summary>
@@ -29,7 +29,7 @@ public record OKXApiAddresses
     public static OKXApiAddresses Europe = new OKXApiAddresses
     {
         UnifiedRestAddress = "https://eea.okx.com",
-        UnifiedSocketAddress = "wss://wseea.okx.com:8443",
+        UnifiedSocketAddress = "wss://wseea.okx.com:443",
     };
 
     /// <summary>
@@ -38,6 +38,6 @@ public record OKXApiAddresses
     public static OKXApiAddresses Demo = new OKXApiAddresses
     {
         UnifiedRestAddress = "https://www.okx.com",
-        UnifiedSocketAddress = "wss://wspap.okx.com:8443",
+        UnifiedSocketAddress = "wss://wspap.okx.com:443",
     };
 }
